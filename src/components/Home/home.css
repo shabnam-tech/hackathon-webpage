@@ -1,0 +1,74 @@
+/* Cyberpunk Home Section */
+.home-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #00fff6;
+    text-shadow: 0px 0px 10px rgba(0, 255, 246, 0.6);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glowing 3D Cube */
+.glowing-cube {
+    width: 250px;  /* Increased size of the cube */
+    height: 250px; /* Increased size of the cube */
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(0deg) rotateY(0deg);
+    animation: rotateCube 6s infinite linear;
+}
+
+/* Each side of the cube */
+.glowing-cube div {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: rgba(0, 255, 246, 0.7);
+    border: 3px solid #00fff6;
+    box-shadow: 0px 0px 25px rgba(0, 255, 246, 0.8);
+}
+
+.glowing-cube .front  { transform: translateZ(125px); }
+.glowing-cube .back   { transform: rotateY(180deg) translateZ(125px); }
+.glowing-cube .left   { transform: rotateY(-90deg) translateZ(125px); }
+.glowing-cube .right  { transform: rotateY(90deg) translateZ(125px); }
+.glowing-cube .top    { transform: rotateX(90deg) translateZ(125px); }
+.glowing-cube .bottom { transform: rotateX(-90deg) translateZ(125px); }
+
+/* Text Styling */
+.text-container {
+    text-align: center;
+    z-index: 1000;
+}
+
+h1 {
+    font-size: 4.5rem; /* Slightly larger font for better visibility */
+    font-weight: bold;
+    color: #00fff6;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+/* Button Styling */
+.cyber-button {
+    background: linear-gradient(135deg, #94bcda, #09a1e8);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0px 0px 10px rgba(0, 255, 246, 0.8);
+    transition: 0.3s ease-in-out;
+    margin-top: 20px;
+}
+
+.cyber-button:hover {
+    box-shadow: 0px 0px 20px rgba(0, 255, 246, 1);
+    transform: scale(1.1);
+}
