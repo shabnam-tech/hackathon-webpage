@@ -1,17 +1,27 @@
 // src/components/FAQ/FAQ.js
-import React from "react";
+import React,  { useState }  from "react";
 import "./faq.css";
+
+const FAQItem = ({ question, answer }) => {
+    const [isOpen, setIsOpen] = useState(false);
+  
+    return (
+      <div className={`faq-box ${isOpen ? "active" : ""}`} onClick={() => setIsOpen(!isOpen)}>
+        <div className="faq-question">{question}</div>
+        <div className="faq-answer" style={{ maxHeight: isOpen ? "500px" : "0px", padding: isOpen ? "15px" : "0px" }}>
+          {isOpen && answer}
+        </div>
+      </div>
+    );
+  };
 
 const FAQ = () => {
     return (
-        <div className="faq-container">
-            <h2>Frequently Asked Questions</h2>
-            <ul>
-                <li>Q: What is CyberHack 2077?</li>
-                <li>A: It is a futuristic hackathon focused on innovative tech challenges.</li>
-                <li>Q: When does the hackathon take place?</li>
-                <li>A: The hackathon will start on 9th June 2077.</li>
-            </ul>
+        <div id="faq" title="Frequently Asked Questions">
+          <h2>FREQUENTLY ASKED QUESTIONS</h2>
+          <FAQItem question="Who can participate?" answer="Open to students and professionals passionate about coding." />
+          <FAQItem question="What do I need to bring?" answer="Laptop, chargers, and a problem-solving mindset." />
+          <FAQItem question="What are the prizes?" answer="Cash prizes, goodies, internship offers, and more." />
         </div>
     );
 };
