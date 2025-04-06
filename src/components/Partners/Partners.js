@@ -1,4 +1,3 @@
-// src/components/Partners/Partners.js
 import React from "react";
 import "./partners.css";
 

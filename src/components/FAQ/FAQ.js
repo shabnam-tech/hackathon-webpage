@@ -1,4 +1,3 @@
-// src/components/FAQ/FAQ.js
 import React,  { useState }  from "react";
 import "./faq.css";
 

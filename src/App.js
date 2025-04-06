@@ -1,5 +1,5 @@
 import React from "react";
-import HackathonPage from "./HackathonPage"; // Adjust the path if needed
+import HackathonPage from "./HackathonPage"; 
 
 function App() {
   return (

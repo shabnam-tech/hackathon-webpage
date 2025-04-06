@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-scroll";  // Importing from 'react-scroll' for anchor scrolling
+import { Link } from "react-scroll";  
 import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Events from "./components/Events/Events";
@@ -11,10 +11,10 @@ import "./styles.css";
 function HackathonPage() {
   return (
     <div>
-      {/* Animated Background */}
+      {}
       <div className="animated-bg"></div>
 
-      {/* Navbar */}
+      {}
       <nav className="navbar">
         <div className="hackathon-name">CyberHack 2077</div>
         <ul>
@@ -27,7 +27,7 @@ function HackathonPage() {
         </ul>
       </nav>
 
-      {/* Sections */}
+      {}
       <section id="home" className="section">
         <Home />
       </section>
