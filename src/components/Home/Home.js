@@ -6,13 +6,11 @@ const Home = () => {
   const cubeRef = useRef(null);
 
   const handleMouseMove = (event) => {
-    // Get mouse position relative to the viewport
-    const mouseX = event.clientX / window.innerWidth - 0.5; // Normalize to [-0.5, 0.5]
-    const mouseY = event.clientY / window.innerHeight - 0.5; // Normalize to [-0.5, 0.5]
+    const mouseX = event.clientX / window.innerWidth - 0.5;
+    const mouseY = event.clientY / window.innerHeight - 0.5;
 
-    // Map mouse position to rotation
-    const rotateX = mouseY * 40; // Y axis rotation: tilt up/down
-    const rotateY = mouseX * 40; // X axis rotation: tilt left/right
+    const rotateX = mouseY * 40;
+    const rotateY = mouseX * 40;
 
     setRotation({
       x: rotateX,
@@ -30,7 +28,6 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      {/* Glowing 3D Cube */}
       <div
         className="glowing-cube"
         ref={cubeRef}
