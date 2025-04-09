@@ -1,11 +1,9 @@
 import React from "react";
-import HackathonPage from "./HackathonPage"; 
+import HackathonPage from "./HackathonPage";
 
 function App() {
   return (
-    <div>
-      <HackathonPage />
-    </div>
+    <HackathonPage />
   );
 }
 
