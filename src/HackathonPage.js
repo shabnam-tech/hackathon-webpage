@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-scroll";  
+import React, { useState } from "react";
+import { Link } from "react-scroll";
 import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Events from "./components/Events/Events";
@@ -9,25 +9,65 @@ import FAQ from "./components/FAQ/FAQ";
 import "./styles.css";
 
 function HackathonPage() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleLinkClick = () => {
+    setMenuOpen(false); // close menu after clicking any nav link
+  };
+
   return (
     <div>
-      {}
+      {/* Background */}
       <div className="animated-bg"></div>
 
-      {}
+      {/* Navbar */}
       <nav className="navbar">
         <div className="hackathon-name">CyberHack 2077</div>
-        <ul>
-          <li><Link to="home" smooth={true} duration={500}>Home</Link></li>
-          <li><Link to="about" smooth={true} duration={500}>About</Link></li>
-          <li><Link to="events" smooth={true} duration={500}>Events</Link></li>
-          <li><Link to="partners" smooth={true} duration={500}>Partners</Link></li>
-          <li><Link to="prizes" smooth={true} duration={500}>Prizes</Link></li>
-          <li><Link to="faq" smooth={true} duration={500} offset={-70}>FAQ</Link></li>
+
+        {/* Hamburger icon */}
+        <div
+          className="menu-icon"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? "✖" : "☰"}
+        </div>
+
+        {/* Nav links */}
+        <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
+          <li>
+            <Link to="home" smooth={true} duration={500} onClick={handleLinkClick}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="about" smooth={true} duration={500} onClick={handleLinkClick}>
+              About
+            </Link>
+          </li>
+          <li>
+            <Link to="events" smooth={true} duration={500} onClick={handleLinkClick}>
+              Events
+            </Link>
+          </li>
+          <li>
+            <Link to="partners" smooth={true} duration={500} onClick={handleLinkClick}>
+              Partners
+            </Link>
+          </li>
+          <li>
+            <Link to="prizes" smooth={true} duration={500} onClick={handleLinkClick}>
+              Prizes
+            </Link>
+          </li>
+          <li>
+            <Link to="faq" smooth={true} duration={500} offset={-70} onClick={handleLinkClick}>
+              FAQ
+            </Link>
+          </li>
         </ul>
       </nav>
 
-      {}
+      {/* Sections */}
       <section id="home" className="section">
         <Home />
       </section>
@@ -48,6 +88,6 @@ function HackathonPage() {
       </section>
     </div>
   );
-};
+}
 
 export default HackathonPage;

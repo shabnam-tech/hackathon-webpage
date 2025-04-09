@@ -1,9 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./home.css";
 
 const Home = () => {
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
-  const cubeRef = useRef(null);
 
   const handleMouseMove = (event) => {
     const mouseX = event.clientX / window.innerWidth - 0.5;
@@ -28,13 +27,11 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <div
-        className="glowing-cube"
-        ref={cubeRef}
-        style={{
-          transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
-        }}
-      >
+  <div
+  className="glowing-cube"
+  style={{ transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)` }}
+  >
+
         <div className="front"></div>
         <div className="back"></div>
         <div className="left"></div>
