@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
+/* ========== GLOBAL ========== */
 body {
   margin: 0;
   padding: 0;
@@ -10,6 +11,13 @@ body {
   scroll-behavior: smooth;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========== BACKGROUND ========== */
 .animated-bg {
   position: fixed;
   top: 0;
@@ -32,97 +40,80 @@ body {
   z-index: -1;
 }
 
-/* === NAVBAR === */
+/* ========== NAVBAR ========== */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 25px;
-    background: rgba(0, 0, 0, 0.85);
-    color: white;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 9999; /* ensure it's above everything */
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-size: large;
+}
 
 .hackathon-name {
-  font-size: 24px;
+  font-size: 1.8rem;
   font-weight: bold;
   color: #00ffea;
   text-transform: uppercase;
   z-index: 10000;
 }
 
-/* === Hamburger Icon === */
-.menu-icon {
-    display: none; /* default: hidden on desktop */
-    font-size: 28px;
-    color: white;
-    cursor: pointer;
-    z-index: 10001; /* put it on top */
-  }
-
-/* === Navbar Links === */
-.navbar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* Nav Links - Desktop Default */
+.nav-links {
   display: flex;
-  padding-right: 25px;
+  list-style: none;
+  gap: 1.5rem;
 }
 
-.navbar ul li {
-  margin-left: 20px;
-}
-
-.navbar ul li a {
-  color: #00ffea;
+.nav-links li a {
+  color: white;
   text-decoration: none;
-  font-size: 16px;
-  padding: 10px 15px;
-  border-radius: 5px;
-  transition: 0.3s ease-in-out;
+  font-size: 1rem;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #00ffea;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #00ffea;
+  transform: scale(1.05);
   cursor: pointer;
 }
 
-.navbar ul li a:hover {
-  background: #00ffea;
-  color: #0a0a0a;
-  box-shadow: 0px 0px 10px rgba(0, 255, 234, 0.8);
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-  }
-  
-  .nav-links li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    cursor: pointer;
-  }
-/* === Responsive Nav (Open State) === */
-.nav-links.open {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 70px;
-  left: 0;
+.nav-links li a:hover::after {
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.95);
-  box-shadow: 0px 5px 10px rgba(0, 255, 234, 0.3);
-  padding: 10px 0;
-  text-align: center;
 }
 
-.nav-links.open li {
-  margin: 10px 0;
+/* ========== HAMBURGER ICON ========== */
+.menu-icon {
+  display: none; /* Only show on mobile */
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  z-index: 2000;
 }
 
-/* === Sections === */
+/* ========== SECTION ========== */
 .section {
   padding: 100px 20px;
   min-height: 100vh;
@@ -132,7 +123,6 @@ body {
   align-items: center;
   text-align: center;
   font-size: 2rem;
-  padding-top: 80px;
   color: white;
   text-shadow: 0px 0px 10px rgba(0, 255, 234, 0.6);
   animation: fadeInUp 1s forwards;
@@ -145,15 +135,6 @@ body {
   padding-top: 100px;
 }
 
-
-.menu-icon {
-    display: none;
-    font-size: 28px;
-    cursor: pointer;
-    color: white;
-    z-index: 2000;
-  }
-
 h1, h2 {
   font-size: 3rem;
   color: #00ffea;
@@ -162,11 +143,16 @@ h1, h2 {
   text-shadow: 0px 0px 10px rgba(0, 255, 234, 0.8);
 }
 
+h1 {
+  animation: glitch 0.5s infinite alternate;
+}
+
 p {
   font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.8);
 }
 
+/* ========== ANIMATION ========== */
 @keyframes glitch {
   0% { text-shadow: 2px 2px 5px #ff0000; }
   25% { text-shadow: -2px -2px 5px #00ff00; }
@@ -175,14 +161,9 @@ p {
   100% { text-shadow: 2px 2px 5px #ff00ff; }
 }
 
-h1 {
-  animation: glitch 0.5s infinite alternate;
-}
-
-/* === MEDIA QUERIES (MOBILE) === */
+/* ========== MOBILE RESPONSIVE STYLES ========== */
 @media (max-width: 768px) {
   .menu-icon {
-    background-color: red; 
     display: block;
   }
 
@@ -196,6 +177,7 @@ h1 {
     background-color: rgba(0, 0, 0, 0.95);
     text-align: center;
     z-index: 1000;
+    padding: 1rem 0;
   }
 
   .nav-links.open {
@@ -203,16 +185,6 @@ h1 {
   }
 
   .nav-links li {
-    margin: 10px 0;
-  }
-
-  .navbar ul {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .navbar ul li {
     margin: 10px 0;
   }
 

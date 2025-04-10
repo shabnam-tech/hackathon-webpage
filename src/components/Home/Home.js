@@ -18,13 +18,24 @@ const Home = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  
+    if (!isTouchDevice) {
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => window.removeEventListener("mousemove", handleMouseMove);
+    } else {
+      // Auto-rotate cube on mobile
+      const interval = setInterval(() => {
+        setRotation((prev) => ({
+          x: prev.x + 0.5,
+          y: prev.y + 0.5,
+        }));
+      }, 50); // Adjust speed if needed
+  
+      return () => clearInterval(interval);
+    }
   }, []);
-
+  
   return (
     <div className="home-container">
   <div

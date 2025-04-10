@@ -17,6 +17,7 @@
     transform-style: preserve-3d;
     transform: rotateX(0deg) rotateY(0deg);
     animation: rotateCube 6s infinite linear;
+    margin-bottom: 3rem;
 }
 
 .glowing-cube div {
@@ -46,7 +47,7 @@ h1 {
     color: #00fff6;
     text-transform: uppercase;
     letter-spacing: 3px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .cyber-button {
@@ -66,4 +67,7 @@ h1 {
 .cyber-button:hover {
     box-shadow: 0px 0px 20px rgba(0, 255, 246, 1);
     transform: scale(1.1);
+}
+p{
+    margin-bottom: 3rem;
 }
